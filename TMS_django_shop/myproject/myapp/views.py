@@ -36,6 +36,10 @@ def products_view(request):
         'selected_category': category_id
     })
 
+def laptops_view(request):
+    cat_laptops = Category.objects.mro('Ноутбуки')
+
+
 
 @login_required(login_url='/login/')
 def product_detail(request, pk):
