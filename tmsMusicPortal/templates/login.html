@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — MusicPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-emerald-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-10 w-full max-w-md">
+    <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">🔑 Вход</h1>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Имя пользователя:</label>
+            <input type="text" name="username"
+                   class="w-full rounded-full border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-emerald-400 focus:outline-none shadow-sm">
+        </div>
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Пароль:</label>
+            <input type="password" name="password"
+                   class="w-full rounded-full border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-emerald-400 focus:outline-none shadow-sm">
+        </div>
+        <button type="submit"
+                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 rounded-full shadow-md transition">
+            Войти
+        </button>
+    </form>
+
+    <p class="text-center text-gray-600 mt-4">
+        Нет аккаунта?
+        <a href="{% url 'register' %}" class="text-emerald-600 hover:text-emerald-800 font-medium">Зарегистрироваться</a>
+    </p>
+  </div>
+
+</body>
+</html>

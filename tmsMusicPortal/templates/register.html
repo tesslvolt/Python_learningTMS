@@ -1,0 +1,39 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация — MusicPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-emerald-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-10 w-full max-w-md">
+    <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">🎧 Регистрация</h1>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"
+                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 rounded-full shadow-md transition">
+            Зарегистрироваться
+        </button>
+    </form>
+
+    <div class="text-center my-4 text-gray-500">или</div>
+
+    <a href="{% provider_login_url 'google' %}" class="w-full block">
+        <button type="button"
+                class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-full shadow-md transition mb-4">
+            Зарегистрироваться через Google
+        </button>
+    </a>
+
+    <p class="text-center text-gray-600 mt-4">
+        Уже есть аккаунт?
+        <a href="{% url 'login' %}" class="text-emerald-600 hover:text-emerald-800 font-medium">Войти</a>
+    </p>
+  </div>
+
+</body>
+</html>
